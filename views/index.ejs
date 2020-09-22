@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <div>
+        <h2>World Statistics</h2>
+        <div class="container">
+            <p class="data-box">Total Confirmed: <%=apiResults.TotalConfirmed%></p>
+            <p class="data-box">Total Deaths: <%=apiResults.TotalDeaths%></p>
+            <p class="data-box">Total Recovered: <%=apiResults.TotalRecovered%></p>
+        </div>
+    </div>
+    <div>
+        <h2>Get statistics for specific Country</h2>
+        <form action="/getResults" method="POST">
+            <input type="text" placeholder="Country" name='country'>
+            <input type="date" name="fromDate">
+            <input type="date" name="toDate">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>

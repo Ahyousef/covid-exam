@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Countries</title>
+    <script src="../../js/app.js"></script>
+    <%function Country(element) {
+        this.country = element.Country;
+        this.countrycode = element.CountryCode;
+        this.confirmed = element.TotalConfirmed;
+        this.deaths = element.TotalDeaths;
+        this.recovered = element.TotalRecovered;
+        this.date = element.Date;
+      }%>
+</head>
+<body>
+    <div>
+        <h2>Covid19 Statistics for All Countries</h2>
+        <% allData.forEach(element => { %>
+            <%let newCountry = new Country(element)%>
+        <div class="container">
+            <form action="/addRecord" method="POST">
+
+                <p class="data-box">Country: <%=newCountry.country%>,<%=newCountry.countrycode%></p>
+                <input type="text" value="<%=newCountry.country%>,<%=newCountry.countrycode%>" name='countryname' hidden>
+                <p class="data-box">Total Confirmed Cases: <%=newCountry.confirmed%></p>
+                <input type="text" value="<%=newCountry.confirmed%>" name='confirmed' hidden>
+                <p class="data-box">Total Deaths: <%=newCountry.deaths%></p>
+                <input type="text" value="<%=newCountry.deaths%>" name='deaths' hidden>
+                <p class="data-box">Total Recovered Cases: <%=newCountry.recovered%></p>
+                <input type="text" value="<%=newCountry.recovered%>" name='recovered' hidden>
+                <p class="data-box">Date: <%=newCountry.date%></p>
+                <input type="text" value="<%=newCountry.date%>" name='date' hidden>
+                <button>ADD TO MY RECORDS</button>
+            </form>
+        </div>
+        <br>
+        <% }); %>
+    </div>
+    
+</body>
+</html>
