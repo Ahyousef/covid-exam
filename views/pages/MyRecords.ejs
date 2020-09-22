@@ -6,6 +6,21 @@
     <title>My records</title>
 </head>
 <body>
+    <div>
+        <h2>Covid19 Statistics for All Countries</h2>
+        <% myRecords.forEach(element => { %>
+        <div class="container">
+            <form action="/country" method="GET">
+
+                <p class="data-box">Country: <%=element.countryname%></p>
+                <p class="data-box">Date: <%=element.date%></p>
+                <input type="text" value="<%=element.id%>" name='id' hidden>
+                <button>VIEW DETAILS</button>
+            </form>
+        </div>
+        <br>
+        <% }); %>
+    </div>
     
 </body>
 </html>

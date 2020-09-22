@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Covid19 Statistics for <%details.countryname%></h2>
+        <div class="container">
+
+
+            <p class="data-box">Country: <%=details.countryname%></p>
+            <input type="text" value="<%=details.countryname%>" name='countryname' hidden>
+            <p class="data-box">Total Confirmed Cases: <%=details.cases%></p>
+            <input type="text" value="<%=details.cases%>" name='cases' hidden>
+            <p class="data-box">Total Deaths: <%=details.deaths%></p>
+            <input type="text" value="<%=details.deaths%>" name='deaths' hidden>
+            <p class="data-box">Total Recovered Cases: <%=details.recovered%></p>
+            <input type="text" value="<%=details.recovered%>" name='recovered' hidden>
+            <p class="data-box">Date: <%=details.date%></p>
+            <input type="text" value="<%=details.date%>" name='date' hidden>
+            <input type="text" value="<%=details.id%>" name='id' hidden>
+            <button class="showUpdate">Update</button>
+
+            <form id="updateForm" action="/update/{{id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <label for="countryname"> Country</label>
+                <input type="text" value="<%=details.countryname%>" name='countryname'>
+                <label for="countryname"> Total Cases</label>
+                <input type="text" value="<%=details.cases%>" name='cases'>
+                <label for="countryname"> Total Deaths</label>
+                <input type="text" value="<%=details.deaths%>" name='deaths'>
+                <label for="countryname"> Total recovered</label>
+                <input type="text" value="<%=details.recovered%>" name='recovered'>
+                <label for="countryname"> Date</label>
+                <input type="text" value="<%=details.date%>" name='date'>
+                <input type="text" value="<%=details.id%>" name='id' hidden>
+                <button class="showUpdate">Update</button>
+            </form>
+
+
+
+            <form action="/delete/{{id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="text" value="<%=details.id%>" name='id' hidden>
+                <button>Delete</button>
+            </form>
+
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
