@@ -62,7 +62,7 @@ function addRecord(req,res){
     let sql = `INSERT INTO countries (countryname,cases,deaths,recovered,date) VALUES ($1,$2,$3,$4,$5);`
     client.query(sql,safeValues)
     .then((results) => {
-        res.send('success')
+        res.render('pages/MyRecords')
     })
 }
 
